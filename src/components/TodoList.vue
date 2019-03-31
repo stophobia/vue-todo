@@ -1,7 +1,7 @@
 <template>
   <div id="todolistapp">
+    <h3>{{ (new Date()).toTimeString() }}</h3>
     <div id="header" class="header">
-      <h2>Todo list app</h2>
       <input-todo></input-todo>
     </div>
     <list></list>
@@ -11,7 +11,7 @@
 import InputTodo from './InputTodo.vue'
 import List from './List.vue'
 export default {
-  name: 'todo-list',
+  name: 'todolist',
   components: {
     InputTodo,
     List
