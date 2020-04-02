@@ -1,11 +1,10 @@
-<template>
-  <div id="todolistapp">
-    <h3>{{ (new Date()).toTimeString() }}</h3>
-    <div id="header" class="header">
-      <input-todo></input-todo>
-    </div>
-    <list></list>
-  </div>
+<template lang="pug">
+  div
+    h1 Todo
+    h3 {{ (new Date()).toTimeString() }}
+    InputTodo
+    hr
+    List
 </template>
 <script>
 import InputTodo from './InputTodo.vue'
@@ -18,20 +17,15 @@ export default {
   }
 }
 </script>
-<style>
-* {
-  font-family: sans-serif;
-  box-sizing: box-border;
-}
-.header {
-  background-color: #444;
-  padding: 30px;
-  color: #fff;
-  text-align: center;
-}
-.header:after {
-  content: '';
-  display: table;
-  clear: both;
-}
+<style lang="sass" scoped>
+@import '../assets/common.sass'
+.header
+  background-color: #444
+  padding: 30px
+  color: #fff
+  text-align: center
+.header:after
+  content: ''
+  display: table
+  clear: both
 </style>

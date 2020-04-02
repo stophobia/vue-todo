@@ -1,27 +1,30 @@
-<template>
-  <div>
-    <div class="header">
-      <h1 class="headerText">Todo List App</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="#" v-on:click="changeMenu('todolist')">HOME</a>
-          </li>
-          <li>
-            <a href="#" v-on:click="changeMenu('about')">About</a>
-          </li>
-          <li>
-            <a href="#" v-on:click="changeMenu('contact')">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="container">
-      <keep-alive include="about,contact">
-        <component v-bind:is="currentView"></component>
-    </keep-alive>
-    </div>
-  </div>
+<template lang="pug">
+  div.container
+    header
+      nav
+        ul
+          li: a(
+            href="#"
+            v-if="this.currentView === 'todolist' ? 'class=this' : 'class'"
+            v-on:click="changeMenu('todolist')"
+            ) HOME
+          li: a(
+            href="#"
+            v-if="this.currentView === 'about' ? 'class=this' : 'class'"
+            v-on:click="changeMenu('about')"
+          ) About
+          li: a(
+            href="#"
+            v-if="this.currentView === 'contact' ? 'class=this' : 'class'"
+            v-on:click="changeMenu('contact')"
+          ) Contact
+    div
+      keepAlive(
+        include="todolist, about, contact"
+      )
+        component(
+          v-bind:is="currentView"
+        )
 </template>
 
 <script>
@@ -49,42 +52,31 @@ export default {
 }
 </script>
 
-<style scoped>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.header {
-  background-color: #ddd;
-  padding: 10px 0 0 0;
-}
-.headerText {
-  padding: 0 20px;
-}
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #aaa;
-}
-li {
-  float: left;
-  padding: 10px;
-}
-li a {
-  display: block;
-  color: #000;
-  text-align: center;
-  padding: 10px;
-  text-decoration: none;
-}
-li a:hover {
-  background-color: #aaa;
-  color: black;
-}
+<style lang="sass" scoped>
+@import './assets/common.sass'
+.container
+  width: 320px
+  margin: 0 auto
+  padding: 0 20px
+  header
+    margin: 10px 0
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+    overflow: hidden
+    background-color: $white
+    li
+      float: left
+      padding: 10px
+      a
+        display: block
+        color: $text_color
+        text-align: center
+        padding: 10px
+        text-decoration: none
+        &:hover,
+        &.this
+          background-color: $light_grey
+          color: $text_color_hover
 </style>

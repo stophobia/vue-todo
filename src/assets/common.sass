@@ -1,0 +1,760 @@
+@charset "utf-8"
+
+$main_color: rgba(47, 73, 94, 1)
+$main_color_hover: rgba(37, 63, 84, 1)
+$sub_color: rgba(82, 100, 136, 1)
+$sub_color_hover: rgba(72, 90, 126, 1)
+$primary_color: rgba(10, 197, 142, 1)
+$primary_color_hover: rgba(0, 187, 132, 1)
+$secondary_color: rgba(16, 135, 117, 1)
+$secondary_color_hover: rgba(6, 125, 107, 1)
+$error_color: rgba(204, 10, 10, 1)
+$error_color_hover: rgba(194, 0, 0, 1)
+$text_color: rgba(39, 56, 73, 1)
+$text_color_hover: rgba(29, 46, 63, 1)
+$white: #fff
+$white_hover: #f2f2f2
+$black: #222
+$black_hover: #1f1f1f
+$dark_grey: #a6a6a6
+$dark_grey_hover: #9d9d9d
+$grey: #4d4d4d
+$grey_hover: #494949
+$light_grey: #e4e4e4
+$light_grey_hover: #d8d8d8
+$pale_grey: #f4f4f4
+$pale_grey_hover: #e9e9e9
+$fb_color: #29579d
+$tw_color: #33a7e0
+$ya_color: #ff1d1c
+$go_color: #dd5036
+
+// 各項目：指定
+// 大見出し : 32px
+// 中見出し : 24px
+// 小見出し : 20px
+// PCでの本文文字の大きさ : 16px
+// SPでの本文文字の大きさ : 14px
+// コメント、注意書き : 12px
+// 行間（指定なし） : normal
+// 行間（本文基本） : 32px
+// 行間（大きめ） : 24px
+// 行間（小さめ） : 16px
+// 字間（指定なし） : 0
+// 字間（本文基本） : 1px
+// 字間（凝縮） : 0.8px
+// 字間（拡張） : 1.4px
+// フォントファミリー（ゴシック） : "BlinkMacSystemFont", "-apple-system", "Roboto", "Droid Sans", "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", sans-serif
+// フォントファミリー（明朝） : "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif
+
+$font_size_huge: 32px
+$font_size_big: 24px
+$font_size_large: 20px
+$font_size_default_pc: 16px
+$font_size_default_sp: 14px
+$font_size_small: 12px
+
+$line_height_none: normal
+$line_height_high: 32px
+$line_height_default: 24px
+$line_height_low: 16px
+
+$letter_space_none: 0
+$letter_space_default: 1px
+$letter_space_condensed: 0.8px
+$letter_space_expanded: 1.4px
+
+$base_font_family: "BlinkMacSystemFont", "-apple-system", "Roboto", "Droid Sans", "Arial", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", sans-serif
+$mincho_font_family: "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif
+$hiragino_font_family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", sans-serif
+
+// 画面サイズ PCでの最大大きさ : 1176px
+$container_width: 1176px
+
+// Breakpoint : 979px
+$breakpoint: 979px
+
+// container左右padding
+$container_padding: 0 16px
+
+// margin, padding : 0
+// line-height, letter-spacing, font-size, font-family : 設定上のデフォルト
+// color: 黒
+// box-sizing: margin, padding, borderの値を含む
+// word-break, word-wrap : テキストは折り返し
+// text-align : 両断揃え
+// font-feature-settings : 文字詰め有効
+// text-rendering : 読みやすさ優先
+// webkit互換 : フォント整い有効、他はなし
+// デバイス依存 : なし
+*
+  margin: 0
+  padding: 0
+  line-height: $line_height_default
+  letter-spacing: $letter_space_default
+  font-size: $font_size_default_pc
+  font-family: $base_font_family
+  color: $text_color
+  box-sizing: border-box
+  word-break: break-word
+  word-wrap: break-word
+  text-align: justify
+  font-feature-settings: palt
+  -webkit-font-smoothing: antialiased
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+
+a
+  text-decoration: none
+
+// 代表性を持つので、複数名詞で書く
+// padding, margin, border : $directions
+// float : $float_directions
+// font-size : $font_sizes
+// text-align : $horizon_alignments
+// vertical-align: $vertical_alignments
+// line_height : $line_heights
+// letter_space : $letter_spaces
+// inline要素(color) : $colors
+// block要素(div, section, button) : $states
+
+$directions: top, bottom, left, right
+$float_directions: none, left, right
+$font_sizes: huge, big, large, default_pc, default_sp, small
+$font_weights: normal, bold
+$horizon_alignments: left, right, center, justify
+$vertical_alignments: top, bottom, baseline, middle
+$line_heights: none, high, default, low
+$letter_spaces: none, default, condensed, expanded
+$amounts: 0, 4, 8, 12, 16, 24
+$states: error, main, sub
+
+// paddingの方向と程度を指定
+// ex)左側だけ16pxのpaddingを入れたい
+//   .padding-left-16
+
+.padding
+  @each $direction in $directions
+    @each $amount in $amounts
+      &-#{$direction}-#{$amount}
+        padding-#{$direction}: #{$amount}px
+
+// marginの方向と程度を指定
+// ex)上部だけ16pxのmarginを入れたい
+//   .margin-top-16
+
+.margin
+  @each $direction in $directions
+    @each $amount in $amounts
+        &-#{$direction}-#{$amount}
+            margin-#{$direction}: #{$amount}px
+  &-vertical-auto
+    margin: auto 0
+  &-horizon-auto
+    margin: 0 auto
+  &-auto
+    margin: auto
+
+// floatの方向を指定
+// ex)左寄せにしたい
+//   .float-left
+
+.float
+  @each $float_direction in $float_directions
+    &-#{$float_direction}
+      float: #{$float_direction}
+
+.required::after
+  content: "*"
+  position: relative
+  display: inline
+  color: $main_color
+  width: 20px
+  height: 20px
+  font-size: 16px
+
+.validation-error
+  position: relative
+  color: $error_color
+  font-size: $font_size_small
+
+h1
+  font-size: $font_size_huge
+h2
+  font-size: $font_size_big
+  margin: 16px 0 8px
+h3
+  font-size: $font_size_large
+  margin: 16px 0 8px
+h4,
+h5,
+h6
+  font-size: $font_size_default_pc
+  margin: 8px 0 8px
+.list
+  padding: 0
+  listyle: none
+  & >
+    li
+      &:after
+        clear: both
+      &:before,
+      &:after
+        content: " "
+        display: table
+      ul
+        margin: 0
+        padding-left: 20px
+        listyle: none
+      & >
+        & :last-child
+          margin-bottom: 0
+
+form
+  input,
+  select,
+  textarea
+    box-sizing: border-box
+    margin: 0
+    border: none
+    border-radius: 0
+    font: inherit
+    color: inherit
+  textarea
+    overflow: auto
+    vertical-align: top
+    &:disabled
+      background-color: $light_grey
+      color: $grey
+  input
+    &:not([type]),
+    &[type="url"],
+    &[type="tel"],
+    &[type="text"],
+    &[type="email"],
+    &[type="search"],
+    &[type="number"],
+    &[type="password"],
+    &[type="datetime"],
+    &[type="datetime-local"],
+    &[type="date"],
+    &[type="month"],
+    &[type="time"],
+    &[type="week"],
+    &[type="color"]
+      &:disabled
+        background-color: $light_grey
+        color: $grey
+    &[type="checkbox"],
+    &[type="radio"]
+      padding: 0
+      &:not(:disabled)
+        cursor: pointer
+    &:not([type="radio"]):not([type="checkbox"])
+      vertical-align: middle
+  select
+    text-transform: none
+    vertical-align: middle
+    &:disabled
+      border-color: $light_grey
+      background-color: $light_grey
+      color: $grey
+  optgroup
+    font: inherit
+    font-weight: bold
+  fieldset
+    border: none
+    margin: 0
+    padding: 0
+  legend
+    width: 100%
+    border: 0
+    padding: 0
+    padding-bottom: 15px
+    font-size: 20px
+    line-height: 34px
+    &:after
+      content: ""
+      display: block
+      border-bottom: 1px solid $light_grey
+  & ::-ms-input-placeholder,
+  & ::-webkit-input-placeholder,
+  & ::-moz-placeholder
+    opacity: 1
+    color: $black
+    &:disabled
+      color: $grey
+  & :invalid
+    box-shadow: none
+  & >
+  & :last-child
+    margin-bottom: 0
+  &.-small
+    height: 24px
+    padding: 4px 4px
+    font-size: $font_size_small
+  &.-large
+    height: 40px
+    padding: 8px 8px
+    font-size: $font_size_large
+  &.-danger
+    border-color: $error_color
+    background: $white
+    color: $error_color
+  &.-success
+    border-color: $primary_color
+    background: $white
+    color: $primary_color
+  &.-blank
+    border-color: transparent
+    border-style: dashed
+    background: none
+    &:focus
+      border-color: $light_grey
+  &.-row
+    &:before,
+    &:after
+      content: ""
+      display: table
+      clear: both
+    & +
+    & .form-row
+      margin-top: 16px
+  &.-help
+    &-inline
+      display: inline-block
+      margin: 0 0 0 16px
+    &-block
+      margin: 8px 0 0
+  &.-controls
+    & >
+    &:first-child
+      margin-top: 0
+    &:last-child
+      margin-bottom: 0
+      &-condensed
+        margin: 8px 0
+  &.-stacked
+    & .form-label
+      display: block
+      margin-bottom: 8px
+      font-weight: bold
+
+// border-radiusの程度を指定
+// ex)まん丸にしたい
+//   .border-circle
+// ex)丸めにしたい
+//   .border-round
+.border
+  &-circle
+    border-radius: 50%
+  &-round
+    border-radius: 4px
+  &-remove
+    border: none !important
+
+.icon
+  color: inherit
+  font-size: inherit
+
+.text
+  @each $horizon_alignment in $horizon_alignments
+    &-#{$horizon_alignment}
+      text-align: #{$horizon_alignment}
+  @each $vertical_alignment in $vertical_alignments
+    &-#{$vertical_alignment}
+      vertical-align: #{$vertical_alignment}
+  @each $font_weight in $font_weights
+    &-#{$font_weight}
+      vertical-align: #{$font_weight}
+  &-nowrap
+    white-space: nowrap
+  &-alert
+    color: $error_color
+    font-size: $font_size_small
+  &-ellipsis
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+  &-break
+    word-wrap: break-word
+    hyphens: auto
+  &-label
+    display: inline
+    vertical-align: middle
+
+.container
+  &:before,
+  &:after
+    content: " "
+    display: table
+    clear: both
+    margin-left: auto
+    margin-right: auto
+
+.alert
+  margin-bottom: 16px
+  padding: 8px
+  background: $white
+  color: $error_color
+  border-radius: 4px
+  *
+    & + .alert
+      margin-top: 16px
+    & >
+      & :last-child
+        margin-bottom: 0
+  .close:first-child
+    float: right
+    margin: -16px -16px 0 0
+    & +
+      & *
+        margin-top: 0
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    color: inherit
+    font-weight: bold
+    &.-error
+      background: $error_color
+      color: $white
+    &.-success
+      background: $primary_color
+      color: $white
+    &.-notice
+      background: $secondary_color
+      color: $white
+    &.-warning
+      background: $error_color
+      color: $white
+h1
+  font-size: $font_size_huge
+h2
+  font-size: $font_size_big
+h3
+  font-size: $font_size_large
+h4,
+h5,
+h6
+  font-size: $font_size_default_pc
+
+ul
+  li
+    list-style: none
+
+.misc
+  p,
+  ul,
+  ol,
+  dl,
+  blockquote,
+  pre,
+  address,
+  fieldset,
+  figure
+    margin: 0 0 16px
+    & *
+      & +
+        p,
+        ul,
+        ol,
+        dl,
+        blockquote,
+        pre,
+        address,
+        fieldset,
+        figure
+          margin-top: 16px
+        dt
+          font-weight: bold
+        dd
+          margin-left: 0
+        ul > li > ul,
+        ul > li > ol,
+        ol > li > ol,
+        ol > li > ul
+          margin: 0
+
+hr
+  clear: both
+  -moz-box-sizing: content-box
+  box-sizing: content-box
+  height: 0
+  margin: 16px 0
+  border: 0
+  border-top: 1px solid transparent
+
+* + .table
+  margin-top: 16px
+.table
+  border-collapse: collapse
+  border-spacing: 0
+  width: 100%
+  margin-bottom: 16px
+  th,
+  td
+    padding: 8px 8px
+    border-bottom: 1px solid $light_grey
+  td
+    border: 1px solid
+    border-color: $light_grey
+    vertical-align: middle
+  th
+    border: 1px solid
+    border-color: $light_grey
+    vertical-align: bottom
+    &.-cell
+      display: table
+      width: 100%
+      & > *
+        display: table-cell
+        vertical-align: middle
+    &.-search
+      td
+        padding: 0 4px 2px
+
+.subnav
+  padding: 0
+  listyle: none
+  font-size: .001px
+  & >
+    li
+      position: relative
+      font-size: 1rem
+      vertical-align: top
+      display: inline-block
+      & >
+        a
+          color: $main_color
+          &:hover
+            color: $main_color_hover
+        span
+          color: $grey
+        a,
+        span
+          display: inline-block
+          &:nth-child(n+2)
+            margin-left: 10px
+
+.list
+  padding: 0
+  listyle: none
+  & >
+    li
+      &:after
+        clear: both
+      &:before,
+      &:after
+        content: " "
+        display: table
+      ul
+        margin: 0
+        padding-left: 20px
+        listyle: none
+      & >
+        & :last-child
+          margin-bottom: 0
+
+.button
+  border: none
+  overflow: visible
+  font: inherit
+  color: $dark_grey
+  text-transform: none
+  display: inline-block
+  box-sizing: border-box
+  padding: 16px 0
+  background: $light_grey
+  vertical-align: middle
+  line-height: 24px
+  min-height: 30px
+  font-size: $font_size_default_pc
+  font-weight: bold
+  text-decoration: none
+  text-align: center
+  background-origin: border-box
+  border-radius: 4px
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+  &:not(:disabled)
+    cursor: pointer
+  &:hover,
+  &:focus
+    background-color: $light_grey
+    color: $dark_grey
+    outline: none
+    text-decoration: none
+    background-image: none
+  &:active,
+  &.active
+    background-color: $light_grey
+    color: $dark_grey
+    border-color: $dark_grey
+    background-image: none
+  &.-primary
+    background-color: $primary_color
+    color: $white
+    border-color: $dark_grey
+    &:hover,
+    &:focus
+      background-color: $primary_color
+      color: $white
+      background-image: none
+    &:active,
+    &.active
+      background-color: $primary_color
+      color: $white
+      background-image: none
+      border-color: $dark_grey
+    &-line
+      background-color: $white
+      color: $primary_color
+      border: 1px solid $primary_color
+      &:hover,
+      &:focus
+        background-color: $white
+        color: $primary_color_hover
+        border: 1px solid $primary_color_hover
+      &:active,
+      &.active
+        background-color: $white
+        color: $primary_color_hover
+        border: 1px solid $primary_color_hover
+  &.-tab
+    color: $dark_grey
+    background: $light_grey
+    border: 1px solid $grey
+    &.is-active
+      background: $white
+      border: 1px solid $main_color
+      font-weight: bold
+      color: $black
+  &.-warning
+    background: $secondary_color
+    color: $white
+    border-color: $secondary_color
+    &:hover,
+    &:focus
+      background-color: $secondary_color_hover
+      color: $white
+      background-image: none
+    &:active,
+    &.active
+      background-color: $secondary_color_hover
+      color: $white
+      background-image: none
+      border-color: $dark_grey
+    &-line
+      background-color: $white
+      color: $secondary_color
+      border: 1px solid $secondary_color
+      &:hover,
+      &:focus
+        background-color: $white
+        color: $secondary_color_hover
+        border: 1px solid $secondary_color_hover
+      &:active,
+      &.active
+        background-color: $secondary_color_hover
+        color: $secondary_color_hover
+        border: 1px solid $secondary_color_hover
+  &.-success
+    background-color: $main_color
+    color: $white
+    border-color: $dark_grey
+    &:hover,
+    &:focus
+      background-color: $main_color_hover
+      color: $white
+      background-image: none
+    &:active,
+    &.active
+      background-color: $main_color
+      color: $white
+      background-image: none
+      border-color: $main_color
+  &.-danger
+    background-color: $error_color
+    color: $white
+    border-color: $error_color
+    &:hover,
+    &:focus
+      background-color: $error_color
+      color: $white
+      background-image: none
+    &:active,
+    &.active
+      background-color: $error_color
+      color: $white
+      border-color: $error_color
+  &:disabled,
+  &.disabled,
+  &:disabled *,
+  &.disabled *
+    background-color: $light_grey
+    color: $grey
+    border-color: $dark_grey
+    background-image: none
+    box-shadow: none
+    cursor: not-allowed
+    &:hover,
+    &:focus
+      background-color: $light_grey
+      color: $grey
+      border-color: $dark_grey
+
+// MediaQuery
+@media screen and (min-width: $breakpoint)
+  $container_width: 100% !important
+  .no_all
+    display: none !important
+  .no_pc
+    display: none !important
+  .no_sp
+    display: inherit !important
+
+@media screen and (max-width: $breakpoint)
+  $container_width: 100% !important
+  .no_all
+    display: none !important
+  .no_pc
+    display: inherit !important
+  .no_sp
+    display: none !important
+
+@mixin containerWidth($width:$container_width, $breakpoint: $breakpoint)
+  width: $width
+  margin-right: auto
+  margin-left: auto
+  @media screen and (max-width: $breakpoint)
+    width: initial
+
+.break-container
+  @include containerWidth
+  padding: $container_padding
+
+// Grid Layout
+@mixin GridContainer()
+  @include containerWidth
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  grid-gap: 8px
+  margin: 0 auto
+  justify-content: center
+
+// mouserover
+@mixin MouseOver()
+  &:hover
+    opacity: .8
+a
+  @include MouseOver()
+
+// スマホ解像度サイズ計算
+@function get_vw($size, $viewport:375)
+  $rate: 100 / $viewport
+  @return $rate * $size * 1vw

@@ -1,10 +1,11 @@
-<template>
-  <div>
-    <h1>About</h1>
-    <h3>{{ (new Date()).toTimeString() }}</h3>
-    <h4>System</h4>
-    <tree v-bind:subs="orgcharts"></tree>
-  </div>
+<template lang="pug">
+  div
+    h1 About
+    h3 {{ (new Date()).toTimeString() }}
+    h4 System
+    tree(
+      v-bind:chart="orgcharts"
+    )
 </template>
 <script>
 import Tree from './Tree.vue'
@@ -17,13 +18,13 @@ export default {
     return {
       orgcharts : [
         {
-          name: "Todolist",
+          name: "Organization chart",
           type: "company",
           subs: [
             {
               name: "SI division",
               type: "division",
-              subs: [
+              divs: [
                 {
                   name: "SI first",
                   type: "team",
@@ -37,7 +38,7 @@ export default {
             {
               name: "BI division",
               type: "division",
-              subs: [
+              divs: [
                 {
                   name: "BI first",
                   type: "team",
@@ -55,7 +56,7 @@ export default {
             {
               name: "Solution division",
               type: "division",
-              subs: [
+              divs: [
                 {
                   name: "ESM",
                   type: "team",
